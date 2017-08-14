@@ -1,0 +1,6 @@
+1.text2mysql.sh须放在mysql的data目录下。一般参考为：/var/lib/mysql 
+2.将原始的csv文件备份，并拷贝一份到/var/lib/mysql下，可以创建一个子目录。
+3.DAY_K_LINE_1XXXXXX.csv.new为处理过的中间csv数据，供最终mysqlimport使用。
+4.文件格式介绍：a)sh600001.csv是原始数据文件。它是一只股票（600001）所以历史纪录的日线数据。
+                b）DAY_K_LINE_1_1998.csv.new为中间处理生成的csv数据。表示：1998年所有沪市股票的日线集合。（此处只是部分数据）
+                c)注意在生成中间csv数据时候，需要将原始数据中没有的字段补数据。否则，在最终导入csv时候，mysqlimport会报1265错误。
